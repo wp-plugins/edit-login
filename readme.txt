@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: edit, login, easy, page, customization
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,11 +26,15 @@ Yes, after the installation you have to set only three parameters
 
 == Screenshots ==
 
-1. [Plugin setting](http://www.timeoutworld.net/pluginZip/screenshot_setting.PNG) 
+1. [Plugin setting]
 
 == Changelog ==
 
-Version 1.0.1 - Minor bug fixes
-Version 1.0.0 - Start up version
+= 1.0.2 =
+* Screenshots fix
+= 1.0.1 = 
+* Minor bug fixes
+= 1.0.0 =
+* Start up version
 
 == Upgrade notice ==
