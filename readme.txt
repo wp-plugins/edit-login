@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: edit, login, easy, page, customization
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,8 @@ Edit Login plugin allows you to edit the wordpress default login page: customize
 
 == Frequently asked questions ==
 
-
+= Edit Login plugin is easy to use? =
+Yes, after the installation you have to set only three parameters
 
 == Screenshots ==
 
@@ -29,6 +30,7 @@ Edit Login plugin allows you to edit the wordpress default login page: customize
 
 == Changelog ==
 
+Version 1.0.1 - Minor bug fixes
 Version 1.0.0 - Start up version
 
 == Upgrade notice ==
