@@ -2,8 +2,8 @@
 /*
 Plugin Name: Edit Login
 Plugin URI: http://www.timeoutworld.net/
-Description: Edit Login plugin allows you to edit the wordpress default login page: customize easily the login page background, the logo and its link
-Version: 1.0.2
+Description: Edit Login plugin allows you to edit the wordpress default login page: customize easily the login page background and font, the logo and its link
+Version: 1.1.0
 Author: Diego Foroni
 Author URI: http://www.timeoutworld.net/
 License: GPLv2 or later
@@ -29,6 +29,7 @@ function editLogin_activate_set_default_options() {
     add_option('editLogin_login_logo_url', get_bloginfo('url'));
     add_option('editLogin_login_logo_image', '');
     add_option('editLogin_login_bg_image', '');
+    add_option('editLogin_login_custom_font', '');
 }
 
 //Registration of the plugins options
@@ -36,6 +37,7 @@ function editLogin_register_options_group() {
     register_setting('editLogin_options_group', 'editLogin_login_logo_url');
     register_setting('editLogin_options_group', 'editLogin_login_logo_image');
     register_setting('editLogin_options_group', 'editLogin_login_bg_image');
+    register_setting('editLogin_options_group', 'editLogin_login_custom_font');
 }
 
 //Sets the admin PAGE
@@ -67,6 +69,14 @@ function editLogin_update_options_form()
 				<th scope="row"><label for="editLogin_login_bg_image"><strong>Background image URL</strong> (example: http://www.yoursite.com/folder/file.png):</label></th>
 				<td>
 					<input type="text" id="editLogin_login_bg_image" value="<?php echo get_option('editLogin_login_bg_image'); ?>" name="editLogin_login_bg_image" style="width: 100%;" />
+					<span class="description"></span>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><label for="editLogin_login_custom_font"><strong>Custom Font</strong> - use only <a href="http://www.google.com/fonts/" target="_blank">Google Fonts</a>:</label></th>
+				<td valign="top">
+					<input type="text" id="editLogin_login_custom_font" value="<?php echo get_option('editLogin_login_custom_font'); ?>" name="editLogin_login_custom_font" style="width: 100%;" /><br />
+					<strong>Example</strong>: http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700
 					<span class="description"></span>
 				</td>
 			</tr>
@@ -117,10 +127,12 @@ function editLogin_add_option_page_link($links, $file) {
 }
 /** END **/
 
-//Logo's page: logo picture and background customization
+//Logo's page: logo picture, background customization and custom font
 function editLogin_change_login_logo() {
     $bgLink = get_option('editLogin_login_bg_image');
 	$logoPic = get_option('editLogin_login_logo_image');
+	$font = get_option('editLogin_login_custom_font');
+	
 	echo '<style type="text/css">';
 	if(empty($bgLink)){} else {
 		echo 'body.login {
@@ -131,6 +143,14 @@ function editLogin_change_login_logo() {
 	if(empty($logoPic)){} else {
 		echo 'h1 a {
 			background-image:url('.$logoPic.') !important; background-size: 300px 38px !important; height: 30px !important;
+		}';
+	}
+	
+	if(empty($font)){} else {
+		$urlData = parse_url($font);
+		$fontName = str_replace("+"," ",substr($urlData["query"], (strrpos($urlData["query"], "=") + 1), (strrpos($urlData["query"], ":") - strrpos($urlData["query"], "=") - 1)));
+		echo 'body.login {
+			font-family: '.$fontName.', sans-serif;
 		}';
 	}
 	echo '</style>';
@@ -151,9 +171,18 @@ function editLogin_change_login_logo_title() {
 	return get_bloginfo('name');
 }
 
+//Login page: sets te custom Google fonts
+function editLogin_customGoogleGonts() {
+	$font = get_option('editLogin_login_custom_font');
+	if(empty($font)){} else {
+		echo '<link href="'.$font.'" rel="stylesheet" type="text/css">';
+	}	
+}
+
 //All the plugin hook
 add_action('login_headerurl', 'editLogin_change_login_page_url' );
 add_action('login_headertitle', 'editLogin_change_login_logo_title');
+add_action('login_head', 'editLogin_customGoogleGonts');
 add_action('login_head', 'editLogin_change_login_logo');
 add_action('admin_menu', 'editLogin_add_option_page');
 add_action('admin_init', 'editLogin_register_options_group');
