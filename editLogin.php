@@ -92,7 +92,7 @@ function editLogin_update_options_form()
 					<p>
 						<input type="submit" class="button-primary" id="submit" name="submit" value="<?php _e('Save Changes') ?>" /></form>
 						<br /><br/><br /><?php echo $l_credits; ?><br /><br /><?php echo $l_credits_bis; ?>
-						<br /><br/><br/><br/>
+						<br /><br/><br/><br/><br/>
 						Created by TimeoutWorld.net
 						<br /><br /><br />
 						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
