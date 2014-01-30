@@ -14,7 +14,7 @@
 	Public License pubblicate dalla Free Software Foundation.";
 	$l_credits_bis = "Questo software e' distribuito con la sperenza che risulti
 	utile e quindi non e' prevista alcuna garanzia di funzionamento.
-	Per dettagli fare riferimento alle direttive GNU General Public License";
+	Per dettagli fare riferimento alle direttive GNU General Public License<br/><br/>";
 	$l_title = "Impostazioni";
 	//end language
 ?>
