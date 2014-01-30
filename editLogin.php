@@ -3,7 +3,7 @@
 Plugin Name: Edit Login
 Plugin URI: http://www.timeoutworld.net/
 Description: Edit Login plugin allows you to edit the wordpress default login page: customize easily the login page background and font, the logo and its link
-Version: 1.5.1
+Version: 1.5.3
 Author: Diego Foroni
 Author URI: http://www.timeoutworld.net/
 License: GPLv2 or later
@@ -43,12 +43,12 @@ function editLogin_register_options_group() {
 //Sets the admin PAGE
 function editLogin_update_options_form()
 {
-	$language = bloginfo('language');
+	$language = get_bloginfo('language');
 	$filename = 'editLogin_'.$language.'.php';
-	if(file_exists($filename)){
-		include $filename;
-	} else {
-		include 'editLogin_default.php';
+	include 'editLogin_default.php';
+	
+	if(file_exists(dirname(__FILE__).'/'.$filename)){
+		include $filename;	
 	}
 ?>
     <div class="wrap">
@@ -59,7 +59,7 @@ function editLogin_update_options_form()
 		<table class="form-table">
 			<tbody>
 			<tr valign="top">
-				<th scope="row" style="width: 420px;"><label for="editLogin_login_logo_image"><strong><?php echo $l1; ?> - <?php echo l1_bis; ?></strong> (<?php echo $l2; ?>: http://www.yoursite.com/folder/file.png):</label></th>
+				<th scope="row" style="width: 420px;"><label for="editLogin_login_logo_image"><strong><?php echo $l1; ?> - <?php echo $l1_bis; ?></strong> (<?php echo $l2; ?>: http://www.yoursite.com/folder/file.png):</label></th>
 				<td>
 					<input type="text" id="editLogin_login_logo_image" value="<?php echo get_option('editLogin_login_logo_image'); ?>" name="editLogin_login_logo_image" style="width: 100%;" />
 					<span class="description"></span>
@@ -92,7 +92,7 @@ function editLogin_update_options_form()
 					<p>
 						<input type="submit" class="button-primary" id="submit" name="submit" value="<?php _e('Save Changes') ?>" /></form>
 						<br /><br/><br /><?php echo $l_credits; ?><br /><br /><?php echo $l_credits_bis; ?>
-						<br /><br/>
+						<br /><br/><br/><br/><br/>
 						Created by TimeoutWorld.net
 						<br /><br /><br />
 						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">

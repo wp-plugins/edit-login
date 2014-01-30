@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: edit, login, easy, page, customization
 Requires at least: 3.3
 Tested up to: 3.8.1
-Stable tag: 1.5.1
+Stable tag: 1.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,7 @@ Yes, you can use only fonts from Google Fonts or leave the default theme font
 == Changelog ==
 
 = 1.5.0 =
+* Added language: italian
 * Compatibility update: now the plugin is fully compatible with the new Wordpress version 3.8.1
 * Minor bug fixes
 = 1.4.0 =
