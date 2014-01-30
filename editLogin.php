@@ -3,7 +3,7 @@
 Plugin Name: Edit Login
 Plugin URI: http://www.timeoutworld.net/
 Description: Edit Login plugin allows you to edit the wordpress default login page: customize easily the login page background and font, the logo and its link
-Version: 1.5.2
+Version: 1.5.3
 Author: Diego Foroni
 Author URI: http://www.timeoutworld.net/
 License: GPLv2 or later
@@ -45,10 +45,10 @@ function editLogin_update_options_form()
 {
 	$language = get_bloginfo('language');
 	$filename = 'editLogin_'.$language.'.php';
-	if(file_exists($filename)){
-		include $filename;
-	} else {
-		include 'editLogin_default.php';
+	include 'editLogin_default.php';
+	
+	if(file_exists(dirname(__FILE__).'/'.$filename)){
+		include $filename;	
 	}
 ?>
     <div class="wrap">
