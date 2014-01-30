@@ -3,7 +3,7 @@
 Plugin Name: Edit Login
 Plugin URI: http://www.timeoutworld.net/
 Description: Edit Login plugin allows you to edit the wordpress default login page: customize easily the login page background and font, the logo and its link
-Version: 1.1.0
+Version: 1.4.3
 Author: Diego Foroni
 Author URI: http://www.timeoutworld.net/
 License: GPLv2 or later
@@ -43,40 +43,42 @@ function editLogin_register_options_group() {
 //Sets the admin PAGE
 function editLogin_update_options_form()
 {
+	$language = bloginfo('language');
+	include 'editLogin_'.$language.'.php';
 ?>
     <div class="wrap">
 		<div class="icon32" id="icon-options-general"><br /></div>
-		<h2>Edit Login - Settings</h2>
+		<h2>Edit Login - <?php echo $l_title; ?></h2>
 		<form method="post" action="options.php">
 		<?php settings_fields('editLogin_options_group'); ?>
 		<table class="form-table">
 			<tbody>
 			<tr valign="top">
-				<th scope="row" style="width: 420px;"><label for="editLogin_login_logo_image"><strong>Logo - Image URL</strong> (example: http://www.yoursite.com/folder/file.png):</label></th>
+				<th scope="row" style="width: 420px;"><label for="editLogin_login_logo_image"><strong><?php echo $l1; ?> - <?php echo l1_bis; ?></strong> (<?php echo $l2; ?>: http://www.yoursite.com/folder/file.png):</label></th>
 				<td>
 					<input type="text" id="editLogin_login_logo_image" value="<?php echo get_option('editLogin_login_logo_image'); ?>" name="editLogin_login_logo_image" style="width: 100%;" />
 					<span class="description"></span>
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="editLogin_login_logo_url"><strong>Logo - Link URL</strong> (example: http://www.yoursite.com/):</label></th>
+				<th scope="row"><label for="editLogin_login_logo_url"><strong><?php echo $l1; ?> - <?php echo $l3; ?></strong> (<?php echo $l2; ?>: http://www.yoursite.com/):</label></th>
 				<td>
 					<input type="text" id="editLogin_login_logo_url" value="<?php echo get_option('editLogin_login_logo_url'); ?>" name="editLogin_login_logo_url" style="width: 100%;" />
 					<span class="description"></span>
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="editLogin_login_bg_image"><strong>Background image URL</strong> (example: http://www.yoursite.com/folder/file.png):</label></th>
+				<th scope="row"><label for="editLogin_login_bg_image"><strong><?php echo $l4; ?> <?php echo $l1_bis; ?></strong> (<?php echo $l2; ?>: http://www.yoursite.com/folder/file.png):</label></th>
 				<td>
 					<input type="text" id="editLogin_login_bg_image" value="<?php echo get_option('editLogin_login_bg_image'); ?>" name="editLogin_login_bg_image" style="width: 100%;" />
 					<span class="description"></span>
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="editLogin_login_custom_font"><strong>Custom Font</strong> - use only <a href="http://www.google.com/fonts/" target="_blank">Google Fonts</a>:</label></th>
+				<th scope="row"><label for="editLogin_login_custom_font"><strong><?php echo $l8; ?></strong> - <?php echo $l7; ?> <a href="http://www.google.com/fonts/" target="_blank"><?php echo $l6; ?></a>:</label></th>
 				<td valign="top">
 					<input type="text" id="editLogin_login_custom_font" value="<?php echo get_option('editLogin_login_custom_font'); ?>" name="editLogin_login_custom_font" style="width: 100%;" /><br />
-					<strong>Example</strong>: http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700
+					<strong><?php echo $l2; ?></strong>: http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700
 					<span class="description"></span>
 				</td>
 			</tr>
@@ -84,16 +86,7 @@ function editLogin_update_options_form()
 				<th scope="row">
 					<p>
 						<input type="submit" class="button-primary" id="submit" name="submit" value="<?php _e('Save Changes') ?>" /></form>
-						<br /><br/><br />
-						This program is free software; you can redistribute it and/or
-						modify it under the terms of the GNU General Public License
-						as published by the Free Software Foundation; either version 2
-						of the License, or (at your option) any later version.
-						<br /><br />
-						This program is distributed in the hope that it will be useful,
-						but WITHOUT ANY WARRANTY; without even the implied warranty of
-						MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-						GNU General Public License for more details.
+						<br /><br/><br /><?php echo $l_credits; ?><br /><br /><?php echo $l_credits_bis; ?>
 						<br /><br/>
 						Created by TimeoutWorld.net
 						<br /><br /><br />
@@ -141,8 +134,11 @@ function editLogin_change_login_logo() {
 		}';
 	}
 	if(empty($logoPic)){} else {
+		echo 'h1 {
+			background-image:url('.$logoPic.') !important; background-size: 320px 38px !important; height: 38px !important; background-repeat: no-repeat !important; background-position: center !important;
+		}';
 		echo 'h1 a {
-			background-image:url('.$logoPic.') !important; background-size: 300px 38px !important; height: 30px !important;
+			background-position: -9999px !important;
 		}';
 	}
 	

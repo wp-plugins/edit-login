@@ -3,8 +3,8 @@ Contributors: timeoutworldnet
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EGH5F69Z8Y5R4
 Tags: edit, login, easy, page, customization
 Requires at least: 3.3
-Tested up to: 3.5.2
-Stable tag: 1.1.0
+Tested up to: 3.8.1
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,16 @@ Yes, you can use only fonts from Google Fonts or leave the default theme font
 
 == Changelog ==
 
+= 1.5.0 =
+* Compatibility update: now the plugin is fully compatible with the new Wordpress version 3.8.1
+* Minor bug fixes
+= 1.4.0 =
+* Compatibility update: now the plugin is fully compatible with the new Wordpress version 3.8.0
+* Minor bug fixes
+= 1.3.0 =
+* Compatibility update: now the plugin is fully compatible with the new Wordpress version 3.6.0
+= 1.2.0 =
+* Compatibility update: now the plugin is fully compatible with the new Wordpress version 3.5.2
 = 1.1.0 =
 * Adding the feauture for customize the login page's font with fonts from Google Fonts
 * Screenshots fix
