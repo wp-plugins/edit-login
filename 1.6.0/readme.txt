@@ -32,7 +32,7 @@ Yes, you can use only fonts from Google Fonts or leave the default theme font
 
 == Changelog ==
 
-= 1.5.0 =
+= 1.6.0 =
 * Compatibility update: now the plugin is fully compatible with the new Wordpress version 4.0.0
 = 1.5.0 =
 * Added language: italian
