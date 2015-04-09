@@ -3,8 +3,8 @@ Contributors: timeoutworldnet
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EGH5F69Z8Y5R4
 Tags: edit, login, easy, page, customization
 Requires at least: 3.3
-Tested up to: 4.0
-Stable tag: 1.6.0
+Tested up to: 4.1.1
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,8 @@ Yes, you can use only fonts from Google Fonts or leave the default theme font
 
 == Changelog ==
 
+= 1.6.1 =
+* Added language: serbian (thanks to WebHostingGeeks)
 = 1.6.0 =
 * Compatibility update: now the plugin is fully compatible with the new Wordpress version 4.0.0
 = 1.5.0 =
