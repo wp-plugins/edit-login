@@ -3,8 +3,8 @@ Contributors: timeoutworldnet
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EGH5F69Z8Y5R4
 Tags: edit, login, easy, page, customization
 Requires at least: 3.3
-Tested up to: 4.2.0
-Stable tag: 1.6.4
+Tested up to: 4.2.2
+Stable tag: 1.6.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
